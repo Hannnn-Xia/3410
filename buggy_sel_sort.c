@@ -45,7 +45,7 @@ void selection_sort(long *arr, int len)
     {
         swap_idx = smallest_idx(&arr[i], len - i);
 
-        swap((long *)arr[i], (long *)arr[swap_idx]);
+        swap(&arr[i], &arr[i + swap_idx]);
     }
 }
 
@@ -54,8 +54,8 @@ void selection_sort(long *arr, int len)
  */
 void print_array(long *arr, int len)
 {
-    int i;
-    while (i <= len)
+    int i = 0;
+    while (i < len)
     {
         printf("%ld ", arr[i]);
         i++;
@@ -63,14 +63,13 @@ void print_array(long *arr, int len)
     puts("");
 }
 
-
 int main(int argc, char *argv[])
 {
-    long test_array[5] = {1,4,2,0,3};
-    selection_sort(test_array, 5);
-    print_array(test_array, 5);
+    // long test_array[5] = {1, 4, 2, 0, 3}; //0 4 2 1 3   //
+    // selection_sort(test_array, 5);
+    // print_array(test_array, 5);
 
-    //long test_array2[25] = { 0xddad409b, 0x6b401dbe, 0xc59beda0, 0xf29ec713, 0xbd22bf00, 0x8ea28e5a, 0x2dbfc88e, 0xced646a2, 0x658b9fb0, 0x60fd9368, 0x84feeed6, 0xa41554d7, 0x1759b87f, 0xe30b22c7, 0x11058345, 0x642a9aa6, 0x9d3162cf, 0x00fef5ec, 0x6fc75229, 0x221237bd, 0x4d687204, 0x5d210617, 0x7cf400f9, 0x53d6b17d, 0x00064ffe};
-    //selection_sort(test_array2, 25);
-    //print_array(test_array2, 25);
+    long test_array2[25] = {0xddad409b, 0x6b401dbe, 0xc59beda0, 0xf29ec713, 0xbd22bf00, 0x8ea28e5a, 0x2dbfc88e, 0xced646a2, 0x658b9fb0, 0x60fd9368, 0x84feeed6, 0xa41554d7, 0x1759b87f, 0xe30b22c7, 0x11058345, 0x642a9aa6, 0x9d3162cf, 0x00fef5ec, 0x6fc75229, 0x221237bd, 0x4d687204, 0x5d210617, 0x7cf400f9, 0x53d6b17d, 0x00064ffe};
+    selection_sort(test_array2, 25);
+    print_array(test_array2, 25);
 }
